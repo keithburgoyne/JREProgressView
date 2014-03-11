@@ -106,7 +106,8 @@
 
 - (void)setupProgressView
 {
-    if ([[UIDevice currentDevice].systemVersion compareWithVersion:@"7.1"] == NSOrderedAscending)
+    if ([self compareVersionString:[UIDevice currentDevice].systemVersion
+                 withVersionString:@"7.1"] == NSOrderedAscending)
     {
         return;
     }
@@ -127,6 +128,45 @@
     
     self.trackImageView = subviews[0];
     self.progressImageView = subviews[1];
+}
+
+- (NSComparisonResult)compareVersionString:(NSString *)versionString1
+                         withVersionString:(NSString *)versionString2
+{
+    NSArray *components1 = [versionString1 componentsSeparatedByString:@"."];
+    NSArray *components2 = [versionString2 componentsSeparatedByString:@"."];
+    
+    NSUInteger components1Count = [components1 count];
+    NSUInteger components2Count = [components2 count];
+    NSUInteger partCount = MAX(components1Count, components2Count);
+    
+    for (NSInteger part = 0; part < partCount; ++part)
+    {
+        if (part >= components1Count)
+        {
+            return NSOrderedAscending;
+        }
+        
+        if (part >= components2Count)
+        {
+            return NSOrderedDescending;
+        }
+        
+        NSString *part1String = components1[part];
+        NSString *part2String = components2[part];
+        NSInteger part1 = [part1String integerValue];
+        NSInteger part2 = [part2String integerValue];
+        
+        if (part1 > part2)
+        {
+            return NSOrderedDescending;
+        }
+        if (part1 < part2)
+        {
+            return NSOrderedAscending;
+        }
+    }
+    return NSOrderedSame;
 }
 
 
