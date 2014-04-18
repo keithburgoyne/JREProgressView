@@ -146,6 +146,9 @@
     
     self.trackImageView = subviews[0];
     self.progressImageView = subviews[1];
+    
+    self.trackImageView.image = self.trackImage;
+    self.progressImageView.image = self.progressImage;
 }
 
 - (NSComparisonResult)compareVersionString:(NSString *)versionString1
