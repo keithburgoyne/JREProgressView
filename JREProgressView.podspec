@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.1"
   s.ios.deployment_target = "7.1"
   s.source       = { :git => "https://github.com/silverorange/JREProgressView.git", :tag => s.version.to_s }
-  s.source_files  = "JREProgressView/*.{h,m}"
+  s.source_files = "JREProgressView/*.{h,m}"
   s.public_header_files = "JREProgressView/*.h"
   s.requires_arc = true
-  s.framework  = "UIKit"
+  s.framework    = "UIKit"
 end
 
