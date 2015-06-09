@@ -3,14 +3,14 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1-so.1"
   s.summary      = "UIProgressView subclass"
   s.description  = <<-DESC
-				   UIProgressView subclass that supports custom images on iOS 7.1.
+                   UIProgressView subclass that supports custom images on iOS 7.1.
                    DESC
   s.homepage     = "https://github.com/silverorange/JREProgressView"
   s.license      = "MIT"
   s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.authors             =  { "Keith Burgoyne"   => "keith@silverorange.com",
-                             "Michael Gauthier" => "mike@silverorange.com",
-                             "John Rommel Estropia" => "" }
+  s.authors      =  { "Keith Burgoyne"   => "keith@silverorange.com",
+                      "Michael Gauthier" => "mike@silverorange.com",
+                      "John Rommel Estropia" => "" }
   s.platform     = :ios
   s.platform     = :ios, "7.1"
   s.ios.deployment_target = "7.1"
@@ -19,3 +19,4 @@ Pod::Spec.new do |s|
   s.public_header_files = "JREProgressView/*.h"
   s.framework  = "UIKit"
 end
+
